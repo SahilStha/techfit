@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:work_out/Database/mongodb/dbhelper/insert.dart';
 import 'package:work_out/Database/mongodb/mongodb.dart';
+import 'package:work_out/config/Colors.dart';
 import 'package:work_out/view/screens/customworkout/workout_data.dart';
 import 'package:mongo_dart/mongo_dart.dart' as M;
 import 'package:work_out/view/screens/heatmap/heatmap.dart';
@@ -56,11 +57,11 @@ class customworkout_UI extends State<customworkoutUI> {
   }
 
   Future<void> _save(String newWorkoutName) async {
-    var _id = M.ObjectId();
-    final data = InsertWorkout(id: _id, newWorkoutName: newWorkoutName);
+    var id = M.ObjectId();
+    final data = InsertWorkout(id: id, newWorkoutName: newWorkoutName);
     var result = await MongoDatabase.insert(data);
     ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text("Inserted ID" + _id.$oid)));
+        .showSnackBar(SnackBar(content: Text("Inserted ID${id.$oid}")));
     Navigator.pop(context);
     clear();
   }
@@ -104,7 +105,6 @@ class customworkout_UI extends State<customworkoutUI> {
   Widget build(BuildContext context) {
     return Consumer<WorkoutData>(
       builder: (context, value, child) => Scaffold(
-        backgroundColor: Colors.grey[300],
         appBar: AppBar(
           title: const Text('Custom Workout'),
         ),

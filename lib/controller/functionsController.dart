@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,9 +11,9 @@ class FunctionsController extends GetxController {
   toggleValue(bool? val, int index) {
     // if the "All" option is checked, check all the others
     if (filterItems[index]["title"] == filterItems[0]["title"]) {
-      filterItems.forEach((item) {
+      for (var item in filterItems) {
         item['isChecked'] = val;
-      });
+      }
     }
     // Or check all others alone
     else {

@@ -27,7 +27,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  
   animated_text_kit: ^4.2.2
   animations: ^2.0.3
   cloud_firestore: ^4.4.5
@@ -37,39 +36,34 @@ dependencies:
   delayed_display: ^2.0.0
   device_preview: ^1.1.0
   dropdown_button2: ^2.0.0
-  firebase_auth: ^4.3.0
-  firebase_core: ^2.8.0
-  firebase_storage: ^11.0.16
+  firebase_auth: ^4.6.1
+  firebase_core: ^2.13.0
+  firebase_storage: ^11.2.1
   flutter:
     sdk: flutter
+  flutter_heatmap_calendar: ^1.0.5
+  flutter_launcher_icons: ^0.13.1
+  flutter_local_notifications: ^14.1.0
   flutter_native_splash: ^2.2.6
+  flutter_slidable: ^3.0.0
   flutter_spinkit: ^5.1.0
+  flutter_svg: ^2.0.6
+  fluttertoast: ^8.2.1
   get: ^4.6.5
   google_fonts: ^4.0.3
-  image_picker: ^0.8.5+3
-  internet_connection_checker: ^1.0.0+1
-  mongo_dart: ^0.9.1
-  provider:
   google_nav_bar: ^5.0.6
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  flutter_heatmap_calendar: ^1.0.5
-  fluttertoast: ^8.2.1
-  flutter_local_notifications: ^14.1.0
+  image_picker: ^0.8.5+3
+  internet_connection_checker: ^1.0.0+1
+  mongo_dart: ^0.9.1
+  provider: null
   video_player: ^2.6.1
-  flutter_svg: ^2.0.6  
-  flutter_slidable: ^3.0.0
-
-  
-
 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-
-# dependency_overrides:
-#   firebase_core_platform_interface: 4.5.1
 
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen

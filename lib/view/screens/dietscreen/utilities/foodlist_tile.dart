@@ -17,9 +17,9 @@ class Foodlist extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 25.0, right: 25, top: 25),
       child: Container(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 129, 200, 188),
+          color: const Color.fromARGB(255, 129, 200, 188),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -28,7 +28,7 @@ class Foodlist extends StatelessWidget {
             Checkbox(
               value: foodcompleted,
               onChanged: onChanged,
-              activeColor: Color.fromARGB(255, 75, 112, 232),
+              activeColor: const Color.fromARGB(255, 75, 112, 232),
             ),
 
             // food name

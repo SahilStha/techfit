@@ -57,13 +57,13 @@ class _dietscreenState extends State<dietscreen> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[200],
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 129, 200, 188),
-        title: Text('Diets'),
+        backgroundColor: const Color.fromARGB(255, 129, 200, 188),
+        title: const Text('Diets'),
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: addfood,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: ListView.builder(
         itemCount: foodlist.length,

@@ -51,7 +51,7 @@ class CustomProfileSettings extends StatelessWidget {
                                     userProfileOptionsController
                                             .userProfileOptionsList.length -
                                         1
-                                ? Color.fromARGB(255, 228, 37, 37)
+                                ? const Color.fromARGB(255, 228, 37, 37)
                                 : Theme.of(context).primaryColor,
                             fontSize: 20),
                       ),

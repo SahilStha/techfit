@@ -30,7 +30,7 @@ class ProfileAppBar extends StatelessWidget {
             builder: (signOutController) {
               return ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                    primary: AppColors.darkBlue, elevation: 0),
+                    backgroundColor: AppColors.darkBlue, elevation: 0),
                 label: Text(
                   capitalize(AppTexts.logOut),
                   style: const TextStyle(color: Colors.red),
