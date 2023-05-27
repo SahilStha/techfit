@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "858320824749",
+    "project_id": "techfit-90334",
+    "storage_bucket": "techfit-90334.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858320824749:android:9888fb88cdc3abcfc25924",
+        "android_client_info": {
+          "package_name": "com.example.techfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858320824749-eg15k5n8evcsftljm7fegotsu6qsev59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAJO1hOd37OgFs6oppTBe24XT_WAYLF8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858320824749-eg15k5n8evcsftljm7fegotsu6qsev59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858320824749:android:2594406fc187dd71c25924",
+        "android_client_info": {
+          "package_name": "com.workout.work_out"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858320824749-eg15k5n8evcsftljm7fegotsu6qsev59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAJO1hOd37OgFs6oppTBe24XT_WAYLF8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858320824749-eg15k5n8evcsftljm7fegotsu6qsev59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
