@@ -32,7 +32,7 @@ dependencies:
   animations: ^2.0.3
   cloud_firestore: ^4.4.5
   connectivity: ^3.0.6
-  connectivity_plus: ^3.0.3
+  connectivity_plus: ^4.0.1
   cupertino_icons: ^1.0.2
   delayed_display: ^2.0.0
   device_preview: ^1.1.0
@@ -55,10 +55,10 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_heatmap_calendar: ^1.0.5
   fluttertoast: ^8.2.1
-  flutter_local_notifications: ^8.2.0
+  flutter_local_notifications: ^14.1.0
   video_player: ^2.6.1
   flutter_svg: ^2.0.6  
-  flutter_slidable: ^1.2.0
+  flutter_slidable: ^3.0.0
 
   
 
@@ -68,8 +68,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  firebase_core_platform_interface: 4.5.1
+# dependency_overrides:
+#   firebase_core_platform_interface: 4.5.1
 
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen
