@@ -115,8 +115,7 @@ class GetStartedPage extends GetView<GetStartedController>
                                       style: ElevatedButton.styleFrom(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 20,
-                                        ),
-                                        primary: Theme.of(context).primaryColor,
+                                        ), backgroundColor: Theme.of(context).primaryColor,
                                       ),
                                       onPressed: controller
                                               .hasUserChooserAtLeastOneChoice

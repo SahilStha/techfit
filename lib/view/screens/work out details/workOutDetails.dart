@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:work_out/controller/functionsController.dart';
 import 'package:work_out/view/screens/homepage/componenets/playButton.dart';
+import 'package:work_out/view/screens/video/workout_video.dart';
 
 import '../../../controller/tabs controllers/detailsTabController.dart';
 import '../../../config/Colors.dart';
@@ -12,7 +13,6 @@ import '../../../config/text.dart';
 import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/actionButton.dart';
 import 'componenets/RatingStars.dart';
-import '../../widgets/general_widgets/button.dart';
 
 class WorkOutDetails extends StatelessWidget {
   WorkOutDetails({
@@ -212,7 +212,7 @@ class WorkOutDetails extends StatelessWidget {
                   delay: Duration(milliseconds: delay + 400),
                   child: RatingStars(
                     starsNumber: 5,
-                    filledStars: int.parse(rating != null ? rating : "0"),
+                    filledStars: int.parse(rating ?? "0"),
                   ),
                 ),
                 const SizedBox(
@@ -274,10 +274,21 @@ class WorkOutDetails extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Align(
+                    const Align(
                       alignment: Alignment.center,
                     ),
-                    PlayButton(),
+                    PlayButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return VideoApp(
+                              url:
+                                  'https://player.vimeo.com/external/372296533.sd.mp4?s=11bde8946fdaf8b4d5289aedab9ea909d8f9a210&profile_id=164&oauth2_token_id=57447761',
+                            );
+                          },
+                        ));
+                      },
+                    ),
                     // DelayedDisplay(
                     //   delay: Duration(milliseconds: delay + 700),
                     //   child: CustomButton(

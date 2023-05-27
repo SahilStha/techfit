@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:work_out/Database/mongodb.dart';

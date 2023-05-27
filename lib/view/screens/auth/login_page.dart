@@ -14,7 +14,6 @@ import '../../widgets/general_widgets/mainScreenTitle.dart';
 import '../../widgets/general_widgets/text field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 import 'sign_up_page.dart';
-import 'forgotPassword.dart';
 
 class LoginPage extends GetView<LoginController> with DelayHelperMixin {
   LoginPage({super.key});

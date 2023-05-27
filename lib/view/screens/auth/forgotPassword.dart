@@ -22,7 +22,7 @@ class ForgotPasswordPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             child: Image.asset(
               ImgSrc().randomFromAssetsList(),
