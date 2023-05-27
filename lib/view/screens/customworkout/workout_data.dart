@@ -145,6 +145,7 @@ class WorkoutData extends ChangeNotifier {
 
       // add to the heat map dataset
       heatMapDataSet.addEntries(percentForEachDay.entries);
+      notifyListeners();
     }
   }
 }

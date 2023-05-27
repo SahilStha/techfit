@@ -30,11 +30,12 @@ class HiveDatabase {
     // convert workout objects into lists of strings so that we an save in hive
     final WorkoutsList = convertObjectToWorkoutList(workouts);
     final exerciseList = convertObjectToExerciseList(workouts);
-
+    String a = todaysDateYYYYMMDD();
+    print('COMPLETION_STATUS' + a);
     if (exerciseCompleted(workouts)) {
-      _myBox.put("COMPLETIION_STATUS" + todaysDateYYYYMMDD(), 1);
+      _myBox.put("COMPLETION_STATUS$a", 1);
     } else {
-      _myBox.put("COMPLETIION_STATUS" + todaysDateYYYYMMDD(), 0);
+      _myBox.put("COMPLETION_STATUS$a", 0);
     }
 
     // save into hive
@@ -92,7 +93,8 @@ class HiveDatabase {
 // return completion status of a given date yyyymmdd
   int getCompletionStatus(String yyyymmdd) {
     // returns 0 or 1, if null then return 0
-    int completionStatus = _myBox.get("COMPLETION_STATUS_$yyyymmdd") ?? 0;
+    int completionStatus = _myBox.get("COMPLETION_STATUS$yyyymmdd") ?? 0;
+    print('COMPLETION_STATUS$yyyymmdd');
     return completionStatus;
   }
 }
