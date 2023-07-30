@@ -28,12 +28,12 @@ class EmailVerificatioPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  signOutController.signOut();
-                },
-                child: const Text("sign out test"),
-              ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     signOutController.signOut();
+              //   },
+              //   child: const Text("sign out test"),
+              // ),
               const Spacer(),
               Container(
                 decoration: BoxDecoration(

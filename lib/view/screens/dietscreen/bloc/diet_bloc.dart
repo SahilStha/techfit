@@ -22,6 +22,7 @@ class DietBloc extends Bloc<DietEvent, DietState> {
     on<DeleteDiet>(_deleteDiet);
     on<CheckUncheckDiet>(_checkUnchekDiet);
     on<CreateDiet>(_createDiet);
+    on<ReturnInitialDiet>(_retunriintial);
   }
 
   FutureOr<void> _getDiets(GetDiets event, Emitter<DietState> emit) async {
@@ -98,6 +99,11 @@ class DietBloc extends Bloc<DietEvent, DietState> {
         displayToastMessage('Error', backgroundColor: Colors.red);
       }
     }
+  }
+
+  FutureOr<void> _retunriintial(
+      ReturnInitialDiet event, Emitter<DietState> emit) {
+    emit(state.copyWith(theStates: TheStates.initial));
   }
 }
 

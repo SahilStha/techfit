@@ -26,6 +26,7 @@ class CustomWorkoutBloc extends Bloc<CustomWorkoutEvent, CustomWorkoutState> {
     on<DeleteWorkout>(_deleteWorkout);
     on<GetHeatLevels>(_getHeatLevels);
     on<GetVideos>(_getVideos);
+    on<ReturnInitialCustom>(_returnInitail);
   }
 
   FutureOr<void> _createWorkout(
@@ -133,5 +134,10 @@ class CustomWorkoutBloc extends Bloc<CustomWorkoutEvent, CustomWorkoutState> {
         displayToastMessage('Error', backgroundColor: Colors.red);
       }
     }
+  }
+
+  FutureOr<void> _returnInitail(
+      ReturnInitialCustom event, Emitter<CustomWorkoutState> emit) {
+    emit(state.copyWith(theStates: TheStates.initial));
   }
 }

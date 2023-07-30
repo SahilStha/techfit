@@ -3,7 +3,8 @@ part of 'diet_bloc.dart';
 abstract class DietEvent {}
 
 class GetDiets extends DietEvent {
-  GetDiets();
+  final bool? isFirstLoad;
+  GetDiets({this.isFirstLoad});
 }
 
 class CreateDiet extends DietEvent {
@@ -26,3 +27,5 @@ class DeleteDiet extends DietEvent {
 
   DeleteDiet({required this.dietId});
 }
+
+class ReturnInitialDiet extends DietEvent {}

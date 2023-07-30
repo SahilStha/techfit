@@ -15,7 +15,9 @@ import '../../widgets/general_widgets/text field.dart';
 import '../../widgets/general_widgets/titleWithDescription.dart';
 
 class SignUpPage extends GetView<SignUpController> with DelayHelperMixin {
-  SignUpPage({super.key});
+  SignUpPage({super.key}) {
+    Get.put(SignUpController());
+  }
 
   @override
   Widget build(BuildContext context) {

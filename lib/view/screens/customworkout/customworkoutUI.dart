@@ -51,7 +51,7 @@ class customworkout_UI extends State<customworkoutUI> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       Provider.of<WorkoutData>(context, listen: false).initalizeWorkoutList();
       BlocProvider.of<CustomWorkoutBloc>(context)
-          .add(GetCustomWorkouts(email: await getEmail()));
+          .add(GetCustomWorkouts(email: await getEmail(), isFirstLoad: true));
     });
 
     // Provider.of<WorkoutData>(context, listen: false).initalizeWorkoutList();
@@ -201,7 +201,8 @@ class customworkout_UI extends State<customworkoutUI> {
                                   // goToWorkoutPage(value.getWorkoutList()[index].name)
                                   title: Text(
                                     state.response?[index].name ?? '',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
                                   ),
 
                                   trailing: Row(

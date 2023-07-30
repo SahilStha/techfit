@@ -7,8 +7,10 @@ abstract class CustomWorkoutEvent {
 
 class GetCustomWorkouts extends CustomWorkoutEvent {
   final String email;
+  final bool? isFirstLoad;
   GetCustomWorkouts({
     required this.email,
+    this.isFirstLoad,
   });
 }
 
@@ -44,3 +46,5 @@ class CreateCustomWorkout extends CustomWorkoutEvent {
 }
 
 class GetVideos extends CustomWorkoutEvent {}
+
+class ReturnInitialCustom extends CustomWorkoutEvent {}

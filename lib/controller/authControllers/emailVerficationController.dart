@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:work_out/controller/functionsController.dart';
 import 'package:work_out/config/text.dart';
+import 'package:work_out/preferences.dart';
 
 import '../../helpers/string_methods.dart';
 import '../../view/screens/homepage/homePage.dart';
@@ -57,6 +58,9 @@ class EmailVerificatioController extends GetxController {
           .update({
         "verified": emailVerifiedAfterReload,
       });
+      Preferences preferences = Preferences();
+      print(user?.email);
+      await preferences.saveString(Preference.userID, user?.email ?? '');
 
       // Go to homepage now
       Get.offAll(HomePage());
@@ -79,5 +83,4 @@ class EmailVerificatioController extends GetxController {
     await user!.sendEmailVerification();
     super.onInit();
   }
-
 }
