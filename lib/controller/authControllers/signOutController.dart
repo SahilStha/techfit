@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:work_out/preferences.dart';
 
 import '../functionsController/dialogsAndLoadingController.dart';
 
@@ -14,6 +15,8 @@ class SignOutController extends GetxController {
     try {
       // Show loading
       dialogsAndLoadingController.showLoading();
+      Preferences preferences = Preferences();
+      await preferences.removeAll();
 
       // Sign out method
       await FirebaseAuth.instance.signOut();

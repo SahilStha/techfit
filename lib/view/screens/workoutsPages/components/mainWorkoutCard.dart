@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:work_out/controller/functionsController.dart';
+import 'package:work_out/view/screens/customworkout/bloc/custom_workout_bloc.dart';
 import 'package:work_out/view/screens/homepage/componenets/playButton.dart';
+import 'package:work_out/view/screens/video/workout_video.dart';
 import 'package:work_out/view/screens/work%20out%20details/componenets/RatingStars.dart';
 
 import '../../../../helpers/string_methods.dart';
@@ -22,6 +25,7 @@ class MainWorkoutCard extends StatelessWidget {
     required this.movesNumber,
     required this.cardTitle,
     required this.sectionTitle,
+    required this.video,
     required this.imagePath,
     required this.description,
     required this.timeLeft,
@@ -79,128 +83,147 @@ class MainWorkoutCard extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        GestureDetector(
-          onTap: () {
-            Get.to(() => WorkOutDetails(
-                  workOutTitle: cardTitle ?? "?",
-                  overlayedImg: imagePath ?? "?",
-                  timeLeftInHour: timeLeft ?? "?",
-                  movesNumber: movesNumber ?? "?",
-                  setsNumber: setsNumber ?? "?",
-                  durationInMinutes: durationInMinutes ?? "?",
-                  rating: filledStars ?? "?",
-                  description: description ?? "?",
-                  reviews: reviews ?? "?",
-                  comments: comments ?? "?",
-                  priceInDollars: priceInDollars ?? "?",
-                  hasFreeTrial: hasFreeTrial ?? "?",
-                ));
-          },
-          child: AspectRatio(
-            aspectRatio: 1 / 1,
-            child: Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              width: double.infinity,
-              height: 500,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    imagePath!,
-                    fit: BoxFit.cover,
+        BlocBuilder<CustomWorkoutBloc, CustomWorkoutState>(
+          builder: (context, state) {
+            return GestureDetector(
+              onTap: () {
+                Get.to(() => WorkOutDetails(
+                      url: state.videos?[0].url ?? '',
+                      workOutTitle: cardTitle ?? "?",
+                      overlayedImg: imagePath ?? "?",
+                      timeLeftInHour: timeLeft ?? "?",
+                      movesNumber: movesNumber ?? "?",
+                      setsNumber: setsNumber ?? "?",
+                      durationInMinutes: durationInMinutes ?? "?",
+                      rating: filledStars ?? "?",
+                      description: description ?? "?",
+                      reviews: reviews ?? "?",
+                      comments: comments ?? "?",
+                      priceInDollars: priceInDollars ?? "?",
+                      hasFreeTrial: hasFreeTrial ?? "?",
+                    ));
+              },
+              child: AspectRatio(
+                aspectRatio: 1 / 1,
+                child: Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.black.withOpacity(0),
-                          Colors.black.withOpacity(.8),
-                        ],
-                        end: Alignment.bottomCenter,
-                        begin: Alignment.topCenter,
-                        stops: const [0, 0.8],
+                  width: double.infinity,
+                  height: 500,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.asset(
+                        imagePath!,
+                        fit: BoxFit.cover,
                       ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: PlayButton(),
-                  ),
-                  Positioned(
-                    bottom: 30,
-                    left: 20,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          capitalize(cardTitle!),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.black.withOpacity(0),
+                              Colors.black.withOpacity(.8),
+                            ],
+                            end: Alignment.bottomCenter,
+                            begin: Alignment.topCenter,
+                            stops: const [0, 0.8],
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        RatingStars(
-                            size: 22,
-                            starsNumber: 5,
-                            filledStars: int.parse(
-                                filledStars != null ? filledStars! : "0"))
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 30,
-                    left: 20,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 5),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text(
-                        capitalize("$timeLeft hours"),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 30,
-                    right: 20,
-                    child: GetBuilder<FunctionsController>(
-                        init: FunctionsController(),
-                        builder: (controller) {
-                          return ActionButton(
-                            onTap: () {
-                              isFavortite = !isFavortite;
-                              if (isFavortite) {
-                                togglablesIcon = Icons.favorite;
-                              } else {
-                                togglablesIcon =
-                                    Icons.favorite_outline_outlined;
-                              }
-                              controller.update();
-                            },
-                            icon: Icon(togglablesIcon, color: Colors.red),
+                      BlocBuilder<CustomWorkoutBloc, CustomWorkoutState>(
+                        builder: (context, state) {
+                          return Align(
+                            alignment: Alignment.center,
+                            child: PlayButton(
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return VideoApp(
+                                      url: state.videos?[0].url ?? '',
+                                    );
+                                  },
+                                ));
+                              },
+                            ),
                           );
-                        }),
-                  )
-                ],
+                        },
+                      ),
+                      Positioned(
+                        bottom: 30,
+                        left: 20,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              capitalize(cardTitle!),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            RatingStars(
+                                size: 22,
+                                starsNumber: 5,
+                                filledStars: int.parse(
+                                    filledStars != null ? filledStars! : "0"))
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 30,
+                        left: 20,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            capitalize("$timeLeft hours"),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 30,
+                        right: 20,
+                        child: GetBuilder<FunctionsController>(
+                            init: FunctionsController(),
+                            builder: (controller) {
+                              return ActionButton(
+                                onTap: () {
+                                  isFavortite = !isFavortite;
+                                  if (isFavortite) {
+                                    togglablesIcon = Icons.favorite;
+                                  } else {
+                                    togglablesIcon =
+                                        Icons.favorite_outline_outlined;
+                                  }
+                                  controller.update();
+                                },
+                                icon: Icon(togglablesIcon, color: Colors.red),
+                              );
+                            }),
+                      )
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );

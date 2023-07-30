@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:work_out/controller/functionsController.dart';
 import 'package:work_out/config/images%20sources.dart';
+import 'package:work_out/view/screens/customworkout/bloc/custom_workout_bloc.dart';
 
 import '../../../../config/text.dart';
 import '../../../../helpers/string_methods.dart';
@@ -66,25 +68,30 @@ class TabBarViewSection extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          child: Wrap(
-            children: [
-              ...List.generate(
-                itemsToShow < dataList.length ? 3 : dataList.length,
-                (index) => WorkOutCard(
-                    index: index,
-                    listCollection: dataList,
-                    title: capitalize(
-                      dataList[index]["workOutTitle"] ??
-                          AppTexts.somethingWrong,
-                    ),
-                    imagePath:
-                        dataList[index]["imagePath"] ?? ImgSrc.noImgAvailable),
-              )
-            ],
-          ),
+        BlocBuilder<CustomWorkoutBloc, CustomWorkoutState>(
+          builder: (context, state) {
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              child: Wrap(
+                children: [
+                  ...List.generate(
+                    itemsToShow < dataList.length ? 3 : dataList.length,
+                    (index) => WorkOutCard(
+                        url: state.videos?[index].url ?? '',
+                        index: index,
+                        listCollection: dataList,
+                        title: capitalize(
+                          dataList[index]["workOutTitle"] ??
+                              AppTexts.somethingWrong,
+                        ),
+                        imagePath: dataList[index]["imagePath"] ??
+                            ImgSrc.noImgAvailable),
+                  )
+                ],
+              ),
+            );
+          },
         )
       ],
     );

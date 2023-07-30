@@ -1,14 +1,25 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+
+import 'package:work_out/view/screens/customworkout/bloc/custom_workout_bloc.dart';
+import 'package:work_out/view/screens/customworkout/bloc/excersice_bloc.dart';
 import 'package:work_out/view/screens/customworkout/components/exercise_tile.dart';
+import 'package:work_out/view/screens/customworkout/customworkoutUI.dart';
 
 import 'workout_data.dart';
 
 class WorkoutPage extends StatefulWidget {
+  final String workoutId;
   final String workoutName;
-  const WorkoutPage({super.key, required this.workoutName});
+  const WorkoutPage({
+    Key? key,
+    required this.workoutId,
+    required this.workoutName,
+  }) : super(key: key);
 
   @override
   State<WorkoutPage> createState() => _WorkoutPageState();
@@ -97,8 +108,12 @@ class _WorkoutPageState extends State<WorkoutPage> {
     String reps = repsController.text;
     String sets = setsController.text;
     // add exercise to workoutdata list
-    Provider.of<WorkoutData>(context, listen: false)
-        .addExercise(widget.workoutName, newExerciseName, weight, reps, sets);
+    BlocProvider.of<ExcersiceBloc>(context).add(CreateExcersise(
+        name: newExerciseName,
+        workoutId: widget.workoutId,
+        weight: num.tryParse(weight) ?? 0,
+        reps: num.tryParse(reps) ?? 0,
+        sets: num.tryParse(sets) ?? 0));
 
     // pop dialog
     Navigator.pop(context);
@@ -121,46 +136,66 @@ class _WorkoutPageState extends State<WorkoutPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<ExcersiceBloc>(context)
+        .add(GetExcersiseFromWorkout(workoutId: widget.workoutId));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Consumer<WorkoutData>(
-      builder: (context, value, child) => Scaffold(
-        appBar: AppBar(title: Text(widget.workoutName)),
-        floatingActionButton: FloatingActionButton(
-          onPressed: createNewExercise,
-          child: Icon(Icons.add),
-        ),
-        body: ListView.builder(
-            itemCount: value.numberOfExerciseInWOrkout(widget.workoutName),
-            itemBuilder: (context, index) => ExerciseTile(
-                  exerciseName: value
-                      .getRelevantWorkout(widget.workoutName)
-                      .exercises[index]
-                      .name,
-                  weight: value
-                      .getRelevantWorkout(widget.workoutName)
-                      .exercises[index]
-                      .weight,
-                  reps: value
-                      .getRelevantWorkout(widget.workoutName)
-                      .exercises[index]
-                      .reps,
-                  sets: value
-                      .getRelevantWorkout(widget.workoutName)
-                      .exercises[index]
-                      .sets,
-                  isCompleted: value
-                      .getRelevantWorkout(widget.workoutName)
-                      .exercises[index]
-                      .isCompleted,
-                  onCheckBoxChanged: (val) => onCheckBoxChanged(
-                    widget.workoutName,
-                    value
-                        .getRelevantWorkout(widget.workoutName)
-                        .exercises[index]
-                        .name,
-                  ),
-                )),
-      ),
+    return BlocConsumer<ExcersiceBloc, ExcersiseState>(
+      listener: (context, state) async {
+        if (state.shouldReload) {
+          BlocProvider.of<ExcersiceBloc>(context)
+              .add(GetExcersiseFromWorkout(workoutId: widget.workoutId));
+        }
+      },
+      builder: (context, state) {
+        return Scaffold(
+            backgroundColor: Colors.grey.shade800,
+            appBar: AppBar(title: Text(widget.workoutName)),
+            floatingActionButton: FloatingActionButton(
+              onPressed: createNewExercise,
+              child: Icon(Icons.add),
+            ),
+            body: RefreshIndicator(
+              onRefresh: () async {
+                BlocProvider.of<ExcersiceBloc>(context)
+                    .add(GetExcersiseFromWorkout(workoutId: widget.workoutId));
+              },
+              child: state.theStates == TheStates.success
+                  ? ListView.builder(
+                      padding: EdgeInsets.only(top: 20),
+                      itemCount: state.response?.length ?? 0,
+                      itemBuilder: (context, index) => ExerciseTile(
+                            excerciseId: state.response?[index].id ?? '',
+                            exerciseName: state.response?[index].name ?? '',
+                            weight:
+                                state.response?[index].weight.toString() ?? '',
+                            reps: state.response?[index].reps.toString() ?? '',
+                            sets: state.response?[index].sets.toString() ?? '',
+                            isCompleted:
+                                state.response?[index].isCompleted ?? false,
+                            onCheckBoxChanged: (p0) {},
+                          ))
+                  : state.theStates == TheStates.failed
+                      ? Center(
+                          child: ElevatedButton(
+                              onPressed: () {
+                                BlocProvider.of<ExcersiceBloc>(context).add(
+                                    GetExcersiseFromWorkout(
+                                        workoutId: widget.workoutId));
+                              },
+                              child: Text('Refresh')),
+                        )
+                      : state.theStates == TheStates.loading
+                          ? Center(
+                              child: CircularProgressIndicator(),
+                            )
+                          : SizedBox.shrink(),
+            ));
+      },
     );
   }
 }

@@ -6,17 +6,12 @@ import 'package:video_player/video_player.dart';
 /// Stateful widget to fetch and then display video content.
 class VideoApp extends StatefulWidget {
   final String url;
-  const VideoApp(
-      {super.key,
-      this.url =
-          'https://player.vimeo.com/external/372296533.sd.mp4?s=11bde8946fdaf8b4d5289aedab9ea909d8f9a210&profile_id=164&oauth2_token_id=57447761'});
-
+  const VideoApp({super.key, required this.url});
   @override
   _VideoAppState createState() => _VideoAppState();
 }
 
 class _VideoAppState extends State<VideoApp> {
-  final _random = new Random();
   var list = [
     'https://player.vimeo.com/external/372296533.sd.mp4?s=11bde8946fdaf8b4d5289aedab9ea909d8f9a210&profile_id=164&oauth2_token_id=57447761',
     'https://player.vimeo.com/external/371817489.sd.mp4?s=ce9745295a9aa34a7dc37fab01ff536e0ea0823a&profile_id=164&oauth2_token_id=57447761',
@@ -30,7 +25,7 @@ class _VideoAppState extends State<VideoApp> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(list[_random.nextInt(5)])
+    _controller = VideoPlayerController.network(widget.url)
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});

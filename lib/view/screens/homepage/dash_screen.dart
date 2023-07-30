@@ -2,10 +2,12 @@
 
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:hive/hive.dart';
+import 'package:work_out/view/screens/customworkout/bloc/custom_workout_bloc.dart';
 import 'package:work_out/view/screens/dietscreen/dietscreen.dart';
 import 'package:work_out/view/screens/dietscreen/utilities/dialog_box.dart';
 import 'package:work_out/view/screens/dietscreen/utilities/foodlist_tile.dart';
@@ -40,6 +42,12 @@ class _DashscreenState extends State<Dashscreen> {
   final CustomTabBarController _tabx = Get.put(CustomTabBarController());
   final ButtonStyle style =
       ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<CustomWorkoutBloc>(context).add(GetVideos());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -103,16 +111,16 @@ class _DashscreenState extends State<Dashscreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const FindYourWorkout(),
-                          GestureDetector(
-                            onTap: (() {
-                              controller.showFilterDialog(context);
-                            }),
-                            child: const Icon(
-                              Icons.filter_alt_outlined,
-                              color: Color.fromARGB(255, 100, 233, 79),
-                              size: 26,
-                            ),
-                          )
+                          // GestureDetector(
+                          //   onTap: (() {
+                          //     controller.showFilterDialog(context);
+                          //   }),
+                          //   child: const Icon(
+                          //     Icons.filter_alt_outlined,
+                          //     color: Color.fromARGB(255, 100, 233, 79),
+                          //     size: 26,
+                          //   ),
+                          // )
                         ],
                       ),
                     ),

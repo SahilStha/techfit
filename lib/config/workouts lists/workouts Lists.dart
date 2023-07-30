@@ -90,7 +90,7 @@ class WorkoutsList {
       "isWorkoutOfDay": "true",
     },
     {
-      "workOutTitle": "Yoga exerciiiiiiiiiiiises",
+      "workOutTitle": "Yoga exercises",
       "imagePath": "imgs/GetStartedOverlay.png",
       "timeLeftInHour": "12",
       "movesNumber": "25",

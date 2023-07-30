@@ -10,10 +10,12 @@ class WorkOutCard extends StatelessWidget {
     required this.title,
     required this.imagePath,
     required this.listCollection,
+    required this.url,
     required this.index,
   }) : super(key: key);
 
   String title;
+  String url;
   String imagePath;
   List listCollection;
   int index;
@@ -22,6 +24,7 @@ class WorkOutCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(WorkOutDetails(
+          url: url,
           workOutTitle: title,
           overlayedImg: imagePath,
           timeLeftInHour: listCollection[index]["timeLeftInHour"] ?? "?",

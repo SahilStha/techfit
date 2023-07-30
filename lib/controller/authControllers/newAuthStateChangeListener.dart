@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:work_out/preferences.dart';
 import 'package:work_out/view/screens/auth/EmailVerification.dart';
 import 'package:work_out/view/screens/welcome/welcome_page.dart';
 
@@ -13,7 +14,7 @@ class NewAuthStateChangeListener extends GetxController {
   Rxn<User?> user = Rxn<User?>(null);
 
   // Auth state handler
-  handleTheUserState(User? user) {
+  handleTheUserState(User? user) async {
     if (user == null) {
       // print("no user / user is signed out");
       Get.offAll(WelcomePage());
@@ -22,6 +23,10 @@ class NewAuthStateChangeListener extends GetxController {
         // print("user is signed in but not verified");
         Get.offAll(EmailVerificatioPage());
       } else {
+        Preferences preferences = Preferences();
+        print(user.email);
+        await preferences.saveString(Preference.userID, user.email ?? '');
+
         // print("user is signed in");
         Get.offAll(HomePage());
       }

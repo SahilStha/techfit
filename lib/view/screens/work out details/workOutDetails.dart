@@ -22,6 +22,7 @@ class WorkOutDetails extends StatelessWidget {
     required this.timeLeftInHour,
     required this.movesNumber,
     required this.durationInMinutes,
+    required this.url,
     required this.setsNumber,
     required this.rating,
     required this.description,
@@ -41,6 +42,7 @@ class WorkOutDetails extends StatelessWidget {
       description,
       reviews,
       priceInDollars,
+      url,
       hasFreeTrial;
   final DetailsTabController _tabx = Get.put(DetailsTabController());
   final FunctionsController _controller = Get.put(FunctionsController());
@@ -282,8 +284,7 @@ class WorkOutDetails extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
                             return VideoApp(
-                              url:
-                                  'https://player.vimeo.com/external/372296533.sd.mp4?s=11bde8946fdaf8b4d5289aedab9ea909d8f9a210&profile_id=164&oauth2_token_id=57447761',
+                              url: url,
                             );
                           },
                         ));
