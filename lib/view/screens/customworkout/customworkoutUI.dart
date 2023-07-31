@@ -119,13 +119,15 @@ class customworkout_UI extends State<customworkoutUI> {
   // }
 
   // goto workout page
-  void goToWorkoutPage(String workoutId, String workoutName) {
-    Navigator.push(
+  void goToWorkoutPage(String workoutId, String workoutName) async {
+    bool? isDone = await Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) =>
               WorkoutPage(workoutId: workoutId, workoutName: workoutName),
         ));
+    BlocProvider.of<CustomWorkoutBloc>(context)
+        .add(GetHeatLevels(email: await getEmail()));
   }
 
   // save workout
