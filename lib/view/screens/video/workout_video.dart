@@ -12,14 +12,6 @@ class VideoApp extends StatefulWidget {
 }
 
 class _VideoAppState extends State<VideoApp> {
-  var list = [
-    'https://player.vimeo.com/external/372296533.sd.mp4?s=11bde8946fdaf8b4d5289aedab9ea909d8f9a210&profile_id=164&oauth2_token_id=57447761',
-    'https://player.vimeo.com/external/371817489.sd.mp4?s=ce9745295a9aa34a7dc37fab01ff536e0ea0823a&profile_id=164&oauth2_token_id=57447761',
-    'https://player.vimeo.com/external/214483087.sd.mp4?s=34f2503001f3deabe44cb74d79583f5f265fc4ec&profile_id=164&oauth2_token_id=57447761',
-    'https://player.vimeo.com/external/415159113.sd.mp4?s=26a4f03c57d027eb2080cde548ba6c070cceca4e&profile_id=164&oauth2_token_id=57447761',
-    'https://player.vimeo.com/external/416845967.sd.mp4?s=f66bf376070be8b633073db2af860839e5cb1aab&profile_id=164&oauth2_token_id=57447761',
-    'https://player.vimeo.com/external/406097963.sd.mp4?s=ce054bb0bbaa513438edcbd291c1d57e4898ef71&profile_id=165&oauth2_token_id=57447761'
-  ];
   late VideoPlayerController _controller;
 
   @override
