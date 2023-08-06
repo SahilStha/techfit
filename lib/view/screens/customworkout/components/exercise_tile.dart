@@ -34,9 +34,9 @@ class _ExerciseTileState extends State<ExerciseTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 138, 227, 150),
-      margin: EdgeInsets.symmetric(vertical: 10),
-      padding: EdgeInsets.symmetric(vertical: 10),
+      color: AppColors.green,
+      margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 5),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: ListTile(
         title: Text(
           widget.exerciseName,

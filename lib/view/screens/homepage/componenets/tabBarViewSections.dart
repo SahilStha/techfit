@@ -78,7 +78,8 @@ class TabBarViewSection extends StatelessWidget {
                   ...List.generate(
                     itemsToShow < dataList.length ? 3 : dataList.length,
                     (index) => WorkOutCard(
-                        url: state.videos?[index].url ?? '',
+                        url: dataList[index]["url"] ??
+                            "https://media.istockphoto.com/id/1353020339/video/muscular-athletic-young-man-training-for-body-building-at-home.mp4?s=mp4-640x640-is&k=20&c=bTRENfUm8eU7ycsizFByVr1GO6Cl17k3PG2cq83iNIQ=",
                         index: index,
                         listCollection: dataList,
                         title: capitalize(

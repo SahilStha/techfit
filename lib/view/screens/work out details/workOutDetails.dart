@@ -92,29 +92,6 @@ class WorkOutDetails extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          borderRadius: BorderRadius.circular(40),
-                        ),
-                        width: 120,
-                        height: 30,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            const Icon(
-                              Icons.schedule,
-                              color: Colors.white,
-                              size: 16,
-                            ),
-                            Text(
-                              "$timeLeftInHour ${AppTexts.hours}",
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ),
                       ActionButton(
                         onTap: () {
                           Get.back();
@@ -209,70 +186,6 @@ class WorkOutDetails extends StatelessWidget {
                 ),
                 const SizedBox(
                   height: 5,
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: delay + 400),
-                  child: RatingStars(
-                    starsNumber: 5,
-                    filledStars: int.parse(rating ?? "0"),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: delay + 500),
-                  child: SizedBox(
-                    height: 30,
-                    child: TabBar(
-                      unselectedLabelColor: Colors.white.withOpacity(.5),
-                      indicator: const BoxDecoration(color: Colors.transparent),
-                      labelColor: Colors.white,
-                      controller: _tabx.detailsTabController,
-                      tabs: _tabx.detailsTabs,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 100,
-                  child: DelayedDisplay(
-                    delay: Duration(milliseconds: delay + 600),
-                    child: TabBarView(
-                      controller: _tabx.detailsTabController,
-                      children: [
-                        Center(
-                          child: Text(
-                            description,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            reviews,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            comments,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
                 ),
                 Column(
                   children: [

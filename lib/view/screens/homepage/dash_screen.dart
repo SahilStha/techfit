@@ -178,7 +178,7 @@ class _DashscreenState extends State<Dashscreen> {
                             Center(
                               child: TabBarViewSection(
                                 title: capitalize(
-                                  'All workouts',
+                                  'Full body workwouts',
                                 ),
                                 dataList: WorkoutsList.allWorkoutsList,
                               ),
@@ -197,20 +197,6 @@ class _DashscreenState extends State<Dashscreen> {
                                     'hard',
                                   ),
                                   dataList: WorkoutsList.hardWorkoutsList),
-                            ),
-                            Center(
-                              child: TabBarViewSection(
-                                  title: capitalize(
-                                    'Full body',
-                                  ),
-                                  dataList: WorkoutsList.fullBodyWorkoutsList),
-                            ),
-                            Center(
-                              child: TabBarViewSection(
-                                  title: capitalize(
-                                    'Crossfit',
-                                  ),
-                                  dataList: WorkoutsList.crossFit),
                             ),
                           ],
                         ),

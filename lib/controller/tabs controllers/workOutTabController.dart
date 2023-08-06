@@ -8,11 +8,9 @@ class CustomTabBarController extends GetxController
 
   // Tabs to show
   final List<Tab> workOutTabs = <Tab>[
-    const Tab(text: "All"),
+    const Tab(text: "Full Body"),
     const Tab(text: "Popular"),
     const Tab(text: 'Hard workout'),
-    const Tab(text: 'Full body'),
-    const Tab(text: 'Crossfit'),
   ];
 
   @override
@@ -24,7 +22,7 @@ class CustomTabBarController extends GetxController
   }
 
   @override
-  void onClose() { 
+  void onClose() {
     // dispose
     workOutTabController.dispose();
     super.onClose();

@@ -2,8 +2,8 @@ class WorkoutsList {
 // Class responsible for showing workouts (To-do : turn it into API)
   static List allWorkoutsList = [
     {
-      "workOutTitle": "Example exercises",
-      "imagePath": "imgs/jiabcyzut.png",
+      "workOutTitle": "Mountain climb",
+      "imagePath": "imgs/mountain_climb.png",
       "timeLeftInHour": "1",
       "movesNumber": "08",
       "setsNumber": "22",
@@ -15,10 +15,12 @@ class WorkoutsList {
       "priceInDollars": "3,00",
       "hasFreeTrial": "true",
       "dailyFreeWorkout": "true",
+      "url":
+          "https://media.istockphoto.com/id/1231938416/video/young-man-exercising-at-home-slow-motion-of-man-holding-hands-on-floor-and-doing-mountain.mp4?s=mp4-640x640-is&k=20&c=Ys8jI-1B5r1arn50I2WHaOokVbr2irqrVcNk_kS1ms0="
     },
     {
-      "workOutTitle": "Example exercises",
-      "imagePath": "imgs/welcomeOverlayImg.png",
+      "workOutTitle": "Sit up",
+      "imagePath": "imgs/situp.png",
       "timeLeftInHour": "40",
       "movesNumber": "10",
       "setsNumber": "10",
@@ -31,10 +33,12 @@ class WorkoutsList {
       "hasFreeTrial": "true",
       "isWorkoutOfDay": "true",
       "isDiscounted": "true",
+      "url":
+          "https://media.istockphoto.com/id/1409527370/video/determined-man-doing-sit-ups.mp4?s=mp4-640x640-is&k=20&c=gzINAiqGjQ6JAsgl7DpJp3wcTaUu5PLG7IoQutDopfQ="
     },
     {
-      "workOutTitle": "Yoga exercises",
-      "imagePath": "imgs/GetStartedOverlay.png",
+      "workOutTitle": "Lunges",
+      "imagePath": "imgs/lunges.png",
       "timeLeftInHour": "12",
       "movesNumber": "25",
       "setsNumber": "10",
@@ -45,71 +49,15 @@ class WorkoutsList {
       "comments": "comments",
       "priceInDollars": "12,00",
       "hasFreeTrial": "false",
-    },
-    {
-      "workOutTitle": "Yoga exercises",
-      "imagePath": "imgs/GetStartedOverlay.png",
-      "timeLeftInHour": "12",
-      "movesNumber": "25",
-      "setsNumber": "10",
-      "durationInMinutes": "44",
-      "rating": "4",
-      "description": "Description here",
-      "reviews": "reviews",
-      "comments": "comments",
-      "priceInDollars": "12,00",
-      "hasFreeTrial": "false",
-    },
-    {
-      "workOutTitle": "Example exercises",
-      "imagePath": "imgs/jiabcyzut.png",
-      "timeLeftInHour": "1",
-      "movesNumber": "08",
-      "setsNumber": "22",
-      "durationInMinutes": "15",
-      "rating": "2",
-      "description": "Description here",
-      "reviews": "reviews",
-      "comments": "comments",
-      "priceInDollars": "3,00",
-      "hasFreeTrial": "true",
-    },
-    {
-      "workOutTitle": "Example exercises",
-      "imagePath": "imgs/welcomeOverlayImg.png",
-      "timeLeftInHour": "40",
-      "movesNumber": "10",
-      "setsNumber": "10",
-      "durationInMinutes": "12",
-      "rating": "4",
-      "description": "Description here",
-      "reviews": "reviews",
-      "comments": "comments",
-      "priceInDollars": "25,00",
-      "hasFreeTrial": "true",
-      "isWorkoutOfDay": "true",
-    },
-    {
-      "workOutTitle": "Yoga exercises",
-      "imagePath": "imgs/GetStartedOverlay.png",
-      "timeLeftInHour": "12",
-      "movesNumber": "25",
-      "setsNumber": "10",
-      "durationInMinutes": "44",
-      "rating": "4",
-      "description": "Description here",
-      "reviews": "reviews",
-      "comments": "comments",
-      "priceInDollars": "12,00",
-      "hasFreeTrial": "false",
-      "dailyFreeWorkout": "true",
+      "url":
+          "https://media.istockphoto.com/id/1352910571/video/muscular-athletic-young-man-training-for-body-building-at-home.mp4?s=mp4-640x640-is&k=20&c=UR6Q3iEw3nQARmBivEKTjqqgfBtu5O5ZL1aWZxz6yNA="
     },
   ];
 
   static List hardWorkoutsList = [
     {
-      "workOutTitle": "Hard exercises",
-      "imagePath": "imgs/loginOverlayImg.png",
+      "workOutTitle": "Millitary Press",
+      "imagePath": "imgs/militiary_press.png",
       "timeLeftInHour": "11",
       "movesNumber": "25",
       "setsNumber": "3",
@@ -122,10 +70,12 @@ class WorkoutsList {
       "hasFreeTrial": "false",
       "isWorkoutOfDay": "true",
       "isDiscounted": "true",
+      "url":
+          "https://media.istockphoto.com/id/1387721018/video/male-bodybuilder-doing-overhead-shoulder-push-press.mp4?s=mp4-640x640-is&k=20&c=IZi5jQQ6eNgEa78yRg2wMRQgDUrZrMfexLYcmgw4Eng="
     },
     {
-      "workOutTitle": "hard muscular exercises",
-      "imagePath": "imgs/GetStartedOverlay.png",
+      "workOutTitle": "Head Crusher",
+      "imagePath": "imgs/head_crusher.png",
       "timeLeftInHour": "9",
       "movesNumber": "16",
       "setsNumber": "12",
@@ -136,10 +86,12 @@ class WorkoutsList {
       "comments": "comments",
       "priceInDollars": "5,00",
       "hasFreeTrial": "true",
+      "url":
+          "https://media.istockphoto.com/id/1267927496/video/confident-fit-guy-with-naked-torso-making-exercises-for-hands-with-dumbbell.mp4?s=mp4-640x640-is&k=20&c=zlDiDfBrs-R7Ha4VdewDe0hZhzcQ2nOn6G4dlhAQuWg="
     },
     {
-      "workOutTitle": "random hard exercises",
-      "imagePath": "imgs/welcomePageOverlay.png",
+      "workOutTitle": "Millitary Dumbbell Press",
+      "imagePath": "imgs/militiary_dumbell.png",
       "timeLeftInHour": "11",
       "movesNumber": "16",
       "setsNumber": "12",
@@ -150,10 +102,12 @@ class WorkoutsList {
       "comments": "comments",
       "priceInDollars": "5,00",
       "hasFreeTrial": "true",
+      "url":
+          "https://media.istockphoto.com/id/1024253488/video/muscular-man-in-the-gym-training-with-dumbbells-guy-pumps-his-deltoid-muscle.mp4?s=mp4-640x640-is&k=20&c=F8lq673IXR0KGyiqXvVeppMP-Ffqdj0Z8bOxpBY-4rY="
     },
     {
-      "workOutTitle": "Hard exercises",
-      "imagePath": "imgs/loginOverlayImg.png",
+      "workOutTitle": "Head Crusher",
+      "imagePath": "imgs/head_crusher.png",
       "timeLeftInHour": "11",
       "movesNumber": "25",
       "setsNumber": "3",
@@ -166,6 +120,8 @@ class WorkoutsList {
       "hasFreeTrial": "false",
       "isWorkoutOfDay": "true",
       "isDiscounted": "true",
+      "url":
+          "https://media.istockphoto.com/id/1267927496/video/confident-fit-guy-with-naked-torso-making-exercises-for-hands-with-dumbbell.mp4?s=mp4-640x640-is&k=20&c=zlDiDfBrs-R7Ha4VdewDe0hZhzcQ2nOn6G4dlhAQuWg="
     },
     {
       "workOutTitle": "hard muscular exercises",
@@ -182,8 +138,8 @@ class WorkoutsList {
       "hasFreeTrial": "true",
     },
     {
-      "workOutTitle": "random hard exercises",
-      "imagePath": "imgs/welcomePageOverlay.png",
+      "workOutTitle": "Millitary Dumbbell Press",
+      "imagePath": "imgs/militiary_dumbell.png",
       "timeLeftInHour": "11",
       "movesNumber": "16",
       "setsNumber": "12",
@@ -195,13 +151,15 @@ class WorkoutsList {
       "priceInDollars": "5,00",
       "hasFreeTrial": "true",
       "dailyFreeWorkout": "true",
+      "url":
+          "https://media.istockphoto.com/id/1024253488/video/muscular-man-in-the-gym-training-with-dumbbells-guy-pumps-his-deltoid-muscle.mp4?s=mp4-640x640-is&k=20&c=F8lq673IXR0KGyiqXvVeppMP-Ffqdj0Z8bOxpBY-4rY="
     },
   ];
 
   static List popularWorkoutsList = [
     {
-      "workOutTitle": "Hard exercises",
-      "imagePath": "imgs/loginOverlayImg.png",
+      "workOutTitle": "Pullup",
+      "imagePath": "imgs/pullup.png",
       "timeLeftInHour": "10",
       "movesNumber": "40",
       "setsNumber": "3",
@@ -213,10 +171,12 @@ class WorkoutsList {
       "priceInDollars": "25,00",
       "hasFreeTrial": "true",
       "isWorkoutOfDay": "true",
+      "url":
+          "https://media.istockphoto.com/id/1442093372/video/pull-up-fitness-and-strong-man-training-in-the-gym-for-body-goal-motivation-and-workout.mp4?s=mp4-640x640-is&k=20&c=qj1VmxXWiAgSbB1rvdAdwQVxvHxrvFhZ9OmzOFElets="
     },
     {
-      "workOutTitle": "hard muscular exercises",
-      "imagePath": "imgs/GetStartedOverlay.png",
+      "workOutTitle": "Concentration Curl",
+      "imagePath": "imgs/concentration_curl.png",
       "timeLeftInHour": "22",
       "movesNumber": "40",
       "setsNumber": "20",
@@ -229,10 +189,12 @@ class WorkoutsList {
       "hasFreeTrial": "true",
       "isDiscounted": "true",
       "dailyFreeWorkout": "true",
+      "url":
+          "https://media.istockphoto.com/id/1352956329/video/muscular-athletic-young-man-training-for-body-building-at-home.mp4?s=mp4-640x640-is&k=20&c=nHK-qCW4nUMnNutvQR_4rZuFs3wNN9dJqXnwFiSfB_E="
     },
     {
-      "workOutTitle": "random hard exercises",
-      "imagePath": "imgs/welcomePageOverlay.png",
+      "workOutTitle": "Shoulder",
+      "imagePath": "imgs/shoulder.png",
       "timeLeftInHour": "23",
       "movesNumber": "16",
       "setsNumber": "12",
@@ -244,10 +206,12 @@ class WorkoutsList {
       "priceInDollars": "5,00",
       "hasFreeTrial": "true",
       "isWorkoutOfDay": "true",
+      "url":
+          "https://media.istockphoto.com/id/1300513351/video/athletic-man-is-training-in-living-room-lifting-dumbbells-tensing-muscles-of-arms-working.mp4?s=mp4-640x640-is&k=20&c=4C3dJDFw4eSy4CIC8xBlDLX3u22UVkBRqG9jhmx0dD4="
     },
     {
-      "workOutTitle": "Hard exercises",
-      "imagePath": "imgs/loginOverlayImg.png",
+      "workOutTitle": "Flat Bench Dumbell",
+      "imagePath": "imgs/last.png",
       "timeLeftInHour": "10",
       "movesNumber": "40",
       "setsNumber": "3",
@@ -259,6 +223,8 @@ class WorkoutsList {
       "priceInDollars": "25,00",
       "hasFreeTrial": "true",
       "isWorkoutOfDay": "true",
+      "url":
+          "https://media.istockphoto.com/id/1353005146/video/muscular-athletic-young-man-training-for-body-building-at-home.mp4?s=mp4-640x640-is&k=20&c=MRrHQCDLCJRLLywvJpCu8AvfI68T3Mn5IrY_BlOJ-X8="
     },
     {
       "workOutTitle": "hard muscular exercises",

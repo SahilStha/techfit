@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:work_out/config/Colors.dart';
 
 import 'package:work_out/view/screens/customworkout/bloc/custom_workout_bloc.dart';
 import 'package:work_out/view/screens/customworkout/bloc/excersice_bloc.dart';
@@ -43,7 +44,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: Color.fromARGB(255, 141, 234, 146),
+        backgroundColor: AppColors.green,
         title: Text('Add new exercise'),
         content: SingleChildScrollView(
           child: Column(
@@ -153,7 +154,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
       },
       builder: (context, state) {
         return Scaffold(
-            backgroundColor: Colors.grey.shade800,
+            backgroundColor: Colors.black,
             appBar: AppBar(title: Text(widget.workoutName)),
             floatingActionButton: FloatingActionButton(
               onPressed: createNewExercise,

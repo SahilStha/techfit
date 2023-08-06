@@ -88,7 +88,7 @@ class MainWorkoutCard extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 Get.to(() => WorkOutDetails(
-                      url: state.videos?[0].url ?? '',
+                      url: video ?? '',
                       workOutTitle: cardTitle ?? "?",
                       overlayedImg: imagePath ?? "?",
                       timeLeftInHour: timeLeft ?? "?",
@@ -142,7 +142,7 @@ class MainWorkoutCard extends StatelessWidget {
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
                                     return VideoApp(
-                                      url: state.videos?[0].url ?? '',
+                                      url: video ?? '',
                                     );
                                   },
                                 ));

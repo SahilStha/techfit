@@ -73,7 +73,8 @@ class AllWorkoutsPage extends StatelessWidget {
               delay: Duration(milliseconds: delay + 100),
               slidingBeginOffset: const Offset(0.0, 0.1),
               child: MainWorkoutCard(
-                video: '',
+                video: controller.filterWorkoutWith(
+                    Get.arguments[1], "isWorkoutOfDay", "true")["url"],
                 isFavortite: false,
                 sectionTitle: AppTexts.workoutOfDay,
                 description: AppTexts.basedOnReviews,
@@ -128,7 +129,8 @@ class AllWorkoutsPage extends StatelessWidget {
               child: BlocBuilder<CustomWorkoutBloc, CustomWorkoutState>(
                 builder: (context, state) {
                   return MainWorkoutCard(
-                    video: state.videos?[0].url ?? '',
+                    video: controller.filterWorkoutWith(
+                        Get.arguments[1], "dailyFreeWorkout", "true")["url"],
                     isFavortite: false,
                     sectionTitle: AppTexts.dailyFreeWorkout,
                     description: AppTexts.choosedCarefully,

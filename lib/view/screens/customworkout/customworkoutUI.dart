@@ -160,7 +160,7 @@ class customworkout_UI extends State<customworkoutUI> {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-            backgroundColor: Colors.black.withOpacity(0.8),
+            backgroundColor: Colors.black,
             appBar: AppBar(
               backgroundColor: Color.fromARGB(255, 125, 194, 102),
               title: const Text('Custom Workout'),

@@ -59,7 +59,7 @@ class _dietscreenState extends State<dietscreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Colors.black.withOpacity(0.8),
+          backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Color.fromARGB(255, 125, 194, 102),
             title: const Text('Diets'),
